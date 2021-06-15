@@ -5,6 +5,6 @@
        WORKING-STORAGE SECTION.
        01 HELLO-X            PIC X(40).
        PROCEDURE DIVISION.
-       DISPLAY "Hello Everyone - I hope you enjoyed this demo".
+       DISPLAY "Hello Everyone - I hope you are enjoyed this demo".
        STOP RUN.
        
