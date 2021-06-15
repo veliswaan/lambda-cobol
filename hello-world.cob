@@ -5,6 +5,6 @@
        WORKING-STORAGE SECTION.
        01 HELLO-X            PIC X(40).
        PROCEDURE DIVISION.
-       DISPLAY "Hello Everyone - How to modernize your legacy COBOL applications".
+       DISPLAY "Hello Everyone How to modernize your legacy COBOL applications".
        STOP RUN.
        
