@@ -11,7 +11,7 @@ LAMBDA_NAME='lambda-cobol-hello-world'
 SAM_TEMPLATE='lambda-cobol-sam.yaml'
 STACK_NAME='lambda-cobol-stack'
 BUILD_DIR='build'
-BUCKET_NAME='net.didier-durand.lambda-code'
+BUCKET_NAME='veliswa.openatamazon.cobol.lambda'
 
 set -e
 trap 'catch $? $LINENO' EXIT
@@ -85,12 +85,12 @@ echo "### Listing active Lambdas..."
 aws lambda list-functions --region "$AWS_REGION"
 
 echo ' ' | tee -a "$REPORT"
-echo "### Inkoking deployed Lambda synchronously from CLI..." | tee -a "$REPORT"
+echo "### Invoking deployed Lambda synchronously from CLI..." | tee -a "$REPORT"
 aws lambda invoke --function "$LAMBDA_NAME" --region="$AWS_REGION" outfile.txt | tee -a "$REPORT"
 echo 'invocation result:' | tee -a "$REPORT"
 cat outfile.txt | tee -a "$REPORT"
 #check if ok
-cat outfile.txt | grep 'Hello World from COBOL'
+cat outfile.txt | grep 'Hello Everyone'
 
 echo ' ' | tee -a "$REPORT" && echo ' ' | tee -a "$REPORT"
 echo "### Obtaining API gateway config..." | tee -a "$REPORT"
