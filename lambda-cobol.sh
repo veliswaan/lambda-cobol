@@ -90,7 +90,7 @@ aws lambda invoke --function "$LAMBDA_NAME" --region="$AWS_REGION" outfile.txt |
 echo 'invocation result:' | tee -a "$REPORT"
 cat outfile.txt | tee -a "$REPORT"
 #check if ok
-cat outfile.txt | grep 'Hello Everyone'
+cat outfile.txt | grep 'Hello OpenAtAmazon'
 
 echo ' ' | tee -a "$REPORT" && echo ' ' | tee -a "$REPORT"
 echo "### Obtaining API gateway config..." | tee -a "$REPORT"
