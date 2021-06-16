@@ -5,6 +5,6 @@
        WORKING-STORAGE SECTION.
        01 HELLO-X            PIC X(40).
        PROCEDURE DIVISION.
-       DISPLAY "Hello OpenAtAmazon".
+       DISPLAY "Hello OpenATAmazon".
        STOP RUN.
        
