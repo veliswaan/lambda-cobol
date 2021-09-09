@@ -11,7 +11,7 @@ LAMBDA_NAME='lambda-cobol-hello-world'
 SAM_TEMPLATE='lambda-cobol-sam.yaml'
 STACK_NAME='lambda-cobol-stack'
 BUILD_DIR='build'
-BUCKET_NAME='veliswa.openatamazon.cobol.lambda'
+BUCKET_NAME='veliswa.discoveryhealth.cobol.lambda'
 
 set -e
 trap 'catch $? $LINENO' EXIT

@@ -1,8 +1,8 @@
-<img src="https://github.com/didier-durand/lambda-cobol/blob/main/img/aws-lambda.png" height="110"> <img src="https://github.com/didier-durand/lambda-cobol/blob/main/img/cobol-logo.jpeg" height="110">
+<img src="https://github.com/veliswaan/lambda-cobol/blob/main/img/aws-lambda.png" height="110"> <img src="https://github.com/veliswaan/lambda-cobol/blob/main/img/cobol-logo.jpeg" height="110">
 
 # Legacy Serverless Modernization: Cobol and AWS Lambda functions
 
-![Cobol Lambdas on AWS](https://github.com/didier-durand/lambda-cobol/workflows/Cobol%20Lambdas%20on%20AWS/badge.svg)
+![Cobol Lambdas on AWS](https://github.com/veliswaan/lambda-cobol/workflows/Cobol%20Lambdas%20on%20AWS/badge.svg)
 
 * [Goal](README.md#goal)
 * [Cobol](README.md#cobol)
@@ -24,7 +24,7 @@ The [benefits of the serverless architecture](https://aws.amazon.com/lambda/serv
 applications. The purpose of this showcase is to demonstrate how those benefits can be combined with legacy code, still "doing the job" and 
 delivering solid business value, to further extend its life.
 
-The deployed Cobol program is accessible over http via the definition of a REST service on the [AWS API gateway](https://aws.amazon.com/api-gateway/). The results of the various executions of the workflow in this repo can be seen in [Actions](https://github.com/didier-durand/lambda-cobol/actions) tab here above. Also, some highlights of last execution are reported in last section of this page.
+The deployed Cobol program is accessible over http via the definition of a REST service on the [AWS API gateway](https://aws.amazon.com/api-gateway/). The results of the various executions of the workflow in this repo can be seen in [Actions](https://github.com/veliswaan/lambda-cobol/actions) tab here above. Also, some highlights of last execution are reported in last section of this page.
 
 This initial use case will be refined in upcoming versions by adding a database, calling subprograms, etc.
 
@@ -36,7 +36,7 @@ The purpose of this unusual / unexpected use case with Cobol is to trigger furth
 below will demonstrate that it makes quite a lot of sense to reuse the massive existing assets on a modern cloud platform to further extend their 
 life and leverage them in new ways. It's especially attractive given the incredibly affordable costs of Lambdas when compared to costs of mainframe Mips!
 
-Feel free to fork and replicate this repo in your own environment (see Setup section below). All feedback and suggestions for extensions welcome! (Please, open a [Github issue ticket](https://github.com/didier-durand/lambda-cobol/issues) for this purpose). If you like this repository, please, give it a star!
+Feel free to fork and replicate this repo in your own environment (see Setup section below). All feedback and suggestions for extensions welcome! (Please, open a [Github issue ticket](https://github.com/veliswaan/lambda-cobol/issues) for this purpose). If you like this repository, please, give it a star!
 
 ## Cobol
 
@@ -64,7 +64,7 @@ And this importance is not going to decline anytime soon: [IBM reports](https://
 ## Lambda Functions and Serverless Architecture
 
 <p align="center">
-<img src="https://github.com/didier-durand/lambda-cobol/blob/main/img/lambda-arch.jpeg" height="320">
+<img src="https://github.com/veliswaan/lambda-cobol/blob/main/img/lambda-arch.jpeg" height="320">
 </p>
 <p align="center">
 <b>Canonical Lambda architecture (Python example)</b>
@@ -116,7 +116,7 @@ purpose of such a container is to leverage the isolation provided by containers.
 imposed by specifications) implements the requirements of [custom Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html).
 4) This package is deployed on the Lambda service via [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html).
 5) The SAM description is processed by AWS Lambda and CloudFormation to deploy the function.
-6) SAM CLI is used to check proper deployment.
+6) SAM CLI is used to check proper deployments.
 7) SAM CLI invokes the function synchronously.
 8) curl calls the URL with the obtained DNS to validate the proper execution of the newly deployed Lambda. The URL for curl is built   following template: https://$API_ID.execute-api.$AWS_REGION.amazonaws.com/Prod/$LAMBDA_NAME. $API_ID is dynamic and obtained via a ```aws apigateway get-rest-apis``` CLI command.
 
@@ -150,9 +150,9 @@ Below are the logs of the last execution related to the Lamdba service operated 
     "Functions": [
         {
             "FunctionName": "Hello-world-Python",
-            "FunctionArn": "arn:aws:lambda:us-east-1:514764745669:function:Hello-world-Python",
+            "FunctionArn": "arn:aws:lambda:us-east-1:327534666986:function:Hello-world-Python",
             "Runtime": "python3.8",
-            "Role": "arn:aws:iam::514764745669:role/service-role/Hello-world-Python-role-lyqky200",
+            "Role": "arn:aws:iam::327534666986:role/service-role/Hello-world-Python-role-lyqky200",
             "Handler": "lambda_function.lambda_handler",
             "CodeSize": 299,
             "Description": "",
@@ -190,7 +190,7 @@ Commands you can use next
 	Stack name                   : lambda-cobol-stack
 	Region                       : us-east-1
 	Confirm changeset            : False
-	Deployment s3 bucket         : net.didier-durand.lambda-code
+	Deployment s3 bucket         : net.veliswa-boya.lambda-code
 	Capabilities                 : ["CAPABILITY_IAM"]
 	Parameter overrides          : {}
 	Signing Profiles             : {}
@@ -216,7 +216,7 @@ Operation                LogicalResourceId        ResourceType             Repla
                                                   pi                                              
 -------------------------------------------------------------------------------------------------
 
-Changeset created successfully. arn:aws:cloudformation:us-east-1:514764745669:changeSet/samcli-deploy1622085322/eae734bb-3fc3-480e-9491-5cd82b654dc9
+Changeset created successfully. arn:aws:cloudformation:us-east-1:327534666986:changeSet/samcli-deploy1622085322/eae734bb-3fc3-480e-9491-5cd82b654dc9
 
 
 2021-05-27 03:15:33 - Waiting for stack create/update to complete
@@ -294,7 +294,7 @@ invocation result:
             },
             "tags": {
                 "aws:cloudformation:logical-id": "ServerlessRestApi",
-                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:514764745669:stack/lambda-cobol-stack/c6299620-be99-11eb-bd85-12b6a099270b",
+                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:327534666986:stack/lambda-cobol-stack/c6299620-be99-11eb-bd85-12b6a099270b",
                 "aws:cloudformation:stack-name": "lambda-cobol-stack"
             },
             "disableExecuteApiEndpoint": false
