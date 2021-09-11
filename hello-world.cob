@@ -1,10 +1,10 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. DiscoveryHealth.
+       PROGRAM-ID. OpenSourceIndia.
        ENVIRONMENT DIVISION.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 HELLO-X            PIC X(40).
        PROCEDURE DIVISION.
-       DISPLAY "Hello Discovery Health".
+       DISPLAY "Hello OpenSource India".
        STOP RUN.
        
