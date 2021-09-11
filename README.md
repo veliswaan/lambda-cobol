@@ -116,7 +116,7 @@ purpose of such a container is to leverage the isolation provided by containers.
 imposed by specifications) implements the requirements of [custom Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html).
 4) This package is deployed on the Lambda service via [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html).
 5) The SAM description is processed by AWS Lambda and CloudFormation to deploy the function.
-6) SAM CLI is used to check proper deployments.
+6) SAM CLI is used to check proper deployment.
 7) SAM CLI invokes the function synchronously.
 8) curl calls the URL with the obtained DNS to validate the proper execution of the newly deployed Lambda. The URL for curl is built   following template: https://$API_ID.execute-api.$AWS_REGION.amazonaws.com/Prod/$LAMBDA_NAME. $API_ID is dynamic and obtained via a ```aws apigateway get-rest-apis``` CLI command.
 
@@ -143,31 +143,11 @@ Below are the logs of the last execution related to the Lamdba service operated 
 
 ```
  
-### execution date: Thu May 27 03:13:33 UTC 2021
+### execution date: Sat Sep 11 17:42:36 UTC 2021
  
 ### Check existing Lambdas functions...
 {
-    "Functions": [
-        {
-            "FunctionName": "Hello-world-Python",
-            "FunctionArn": "arn:aws:lambda:us-east-1:327534666986:function:Hello-world-Python",
-            "Runtime": "python3.8",
-            "Role": "arn:aws:iam::327534666986:role/service-role/Hello-world-Python-role-lyqky200",
-            "Handler": "lambda_function.lambda_handler",
-            "CodeSize": 299,
-            "Description": "",
-            "Timeout": 3,
-            "MemorySize": 128,
-            "LastModified": "2021-02-06T10:48:38.267+0000",
-            "CodeSha256": "fI06ZlRH/KN6Ra3twvdRllUYaxv182Tjx0qNWNlKIhI=",
-            "Version": "$LATEST",
-            "TracingConfig": {
-                "Mode": "PassThrough"
-            },
-            "RevisionId": "d90d1b6d-667c-46d9-b9d5-e7fdefdfc004",
-            "PackageType": "Zip"
-        }
-    ]
+    "Functions": []
 }
  
 ### Starting SAM build...
@@ -188,9 +168,9 @@ Commands you can use next
 	Deploying with following values
 	===============================
 	Stack name                   : lambda-cobol-stack
-	Region                       : us-east-1
+	Region                       : eu-west-1
 	Confirm changeset            : False
-	Deployment s3 bucket         : net.veliswa-boya.lambda-code
+	Deployment s3 bucket         : veliswa.discoveryhealth.cobol.lambda
 	Capabilities                 : ["CAPABILITY_IAM"]
 	Parameter overrides          : {}
 	Signing Profiles             : {}
@@ -216,10 +196,10 @@ Operation                LogicalResourceId        ResourceType             Repla
                                                   pi                                              
 -------------------------------------------------------------------------------------------------
 
-Changeset created successfully. arn:aws:cloudformation:us-east-1:327534666986:changeSet/samcli-deploy1622085322/eae734bb-3fc3-480e-9491-5cd82b654dc9
+Changeset created successfully. arn:aws:cloudformation:eu-west-1:327534666986:changeSet/samcli-deploy1631382311/e08ea8c2-0139-47a1-9cb2-c0e7d0b1c9de
 
 
-2021-05-27 03:15:33 - Waiting for stack create/update to complete
+2021-09-11 17:45:17 - Waiting for stack create/update to complete
 
 CloudFormation events from changeset
 -------------------------------------------------------------------------------------------------
@@ -235,10 +215,10 @@ CREATE_IN_PROGRESS       AWS::Lambda::Function    HelloWorldCobol          Resou
 CREATE_COMPLETE          AWS::Lambda::Function    HelloWorldCobol          -                      
 CREATE_IN_PROGRESS       AWS::ApiGateway::RestA   ServerlessRestApi        -                      
                          pi                                                                       
-CREATE_IN_PROGRESS       AWS::ApiGateway::RestA   ServerlessRestApi        Resource creation      
-                         pi                                                Initiated              
 CREATE_COMPLETE          AWS::ApiGateway::RestA   ServerlessRestApi        -                      
                          pi                                                                       
+CREATE_IN_PROGRESS       AWS::ApiGateway::RestA   ServerlessRestApi        Resource creation      
+                         pi                                                Initiated              
 CREATE_IN_PROGRESS       AWS::ApiGateway::Deplo   ServerlessRestApiDeplo   -                      
                          yment                    ymentaf1c952223                                 
 CREATE_IN_PROGRESS       AWS::Lambda::Permissio   HelloWorldCobolGetReso   -                      
@@ -261,11 +241,11 @@ CREATE_COMPLETE          AWS::CloudFormation::S   lambda-cobol-stack       -
                          tack                                                                     
 -------------------------------------------------------------------------------------------------
 
-Successfully created/updated stack - lambda-cobol-stack in us-east-1
+Successfully created/updated stack - lambda-cobol-stack in eu-west-1
 
  
  
-### Inkoking deployed Lambda synchronously from CLI...
+### Invoking deployed Lambda synchronously from CLI...
 {
     "StatusCode": 200,
     "ExecutedVersion": "$LATEST"
@@ -275,16 +255,16 @@ invocation result:
   {
     "isBase64Encoded": false,
     "statusCode": 200, 
-    "body": "Hello World from COBOL!" 
+    "body": "Hello World OpenSource India" 
   } 
  
 ### Obtaining API gateway config...
 {
     "items": [
         {
-            "id": "77wqetvbtk",
+            "id": "3ek55vzmu1",
             "name": "lambda-cobol-stack",
-            "createdDate": "2021-05-27T03:16:02+00:00",
+            "createdDate": "2021-09-11T17:45:44+00:00",
             "version": "1.0",
             "apiKeySource": "HEADER",
             "endpointConfiguration": {
@@ -294,15 +274,15 @@ invocation result:
             },
             "tags": {
                 "aws:cloudformation:logical-id": "ServerlessRestApi",
-                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:327534666986:stack/lambda-cobol-stack/c6299620-be99-11eb-bd85-12b6a099270b",
+                "aws:cloudformation:stack-id": "arn:aws:cloudformation:eu-west-1:327534666986:stack/lambda-cobol-stack/036fc940-1328-11ec-943a-0a09d55edb83",
                 "aws:cloudformation:stack-name": "lambda-cobol-stack"
             },
             "disableExecuteApiEndpoint": false
         }
     ]
 }
-api id: 77wqetvbtk
+api id: 3ek55vzmu1
  
-### Running curl https request to https://77wqetvbtk.execute-api.us-east-1.amazonaws.com/Prod/lambda-cobol-hello-world ...
-Hello World from COBOL! 
+### Running curl https request to https://3ek55vzmu1.execute-api.eu-west-1.amazonaws.com/Prod/lambda-cobol-hello-world ...
+Hello World OpenSource India 
 ```
