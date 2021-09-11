@@ -5,6 +5,6 @@
        WORKING-STORAGE SECTION.
        01 HELLO-X            PIC X(40).
        PROCEDURE DIVISION.
-       DISPLAY "Hello OpenSource India 2021".
+       DISPLAY "Hello World OpenSource India".
        STOP RUN.
        
